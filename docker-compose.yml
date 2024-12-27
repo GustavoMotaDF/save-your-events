@@ -1,0 +1,12 @@
+services:
+  nginx:  
+    image: save-your-events:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: save-your-events
+    restart: always
+    volumes:
+      - "/volume/save-your-events/tor/:/var/lib/tor/"
+    ports:
+      - 8084:80
