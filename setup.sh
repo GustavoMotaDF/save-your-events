@@ -22,7 +22,7 @@ check_directory() {
 
 set_permissions() {
     local DIRECTORY=$1
-    sudo chown -R debian-tor:debian-tor "$DIRECTORY"
+    sudo chown -R 102:102 "$DIRECTORY"
     sudo chmod -R 700 "$DIRECTORY"
     echo "Permissões configuradas para $DIRECTORY."
 }

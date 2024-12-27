@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chown -R 102:102 /var/lib/tor/
+
 echo "Starting Tor..."
 service tor start > /dev/null 2>&1 &
 TOR_PID=$!
