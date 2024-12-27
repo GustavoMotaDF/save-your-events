@@ -9,7 +9,6 @@ Check the TOR_DIR variable in the file and change it if necessary.
 This variable contains the directory to be mounted on the host to persist the information.
 
 # Run docker compose
-Use the docker-compose.yml file from the repository and run:
 
 - Download all files
 - run file: `./setup.sh`
