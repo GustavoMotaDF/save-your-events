@@ -83,14 +83,14 @@ async function connectToRelays(pubkey, relays, relayTargets) {
                   // Verifique se o pubkey está na mensagem antes de adicionar, evitando assim mensagens EOSE, CLOSE, AUTH e etc ..
                   const messageString = JSON.stringify(messageArray);
                   const messageContainsPubkey = messageString.includes(pubkey);
-                  const includeEOSE = messageString.includes("EOSE")
-                  const includeAUTH = messageString.includes("AUTH")
+                  const includeEOSE = messageString.includes("[\"EOSE")
+                  const includeAUTH = messageString.includes("[\"AUTH")
 
-                  if (includeEOSE || includeAUTH) {
+                  if (includeEOSE) {
                       resolve();
                   }
 
-                  else if (messageContainsPubkey && !receivedMessages.has(messageString)) {
+                  else if (!includeAUTH && messageContainsPubkey && !receivedMessages.has(messageString)) {
                       receivedMessages.add(messageString);
                       document.getElementById("receivedCount").textContent = receivedMessages.size;
                   }
