@@ -16,7 +16,7 @@ COPY ./save-your-events/ /usr/share/nginx/html
 
 EXPOSE 80
 
-COPY start.sh /app/start.sh
-RUN chmod +x /app/start.sh
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
-CMD ["/app/start.sh"]
+CMD ["/app/entrypoint.sh"]
